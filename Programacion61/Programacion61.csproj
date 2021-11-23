@@ -6,20 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <Content Remove="wwwroot\App\Categoria\Edit.ts" />
+    <Content Remove="wwwroot\App\Categoria\Grid.ts" />
+    <Content Remove="wwwroot\App\Cliente\Edit.ts" />
+    <Content Remove="wwwroot\App\Cliente\Grid.ts" />
+    <Content Remove="wwwroot\App\Login_RegistrarUsuario\Add.ts" />
+    <Content Remove="wwwroot\App\Login_RegistrarUsuario\Login.ts" />
+    <Content Remove="wwwroot\App\Pedido\Edit.ts" />
+    <Content Remove="wwwroot\App\Pedido\Grid.ts" />
+    <Content Remove="wwwroot\App\Producto\Edit.ts" />
+    <Content Remove="wwwroot\App\Producto\Grid.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Categoria\" />
-    <Folder Include="Pages\Cliente\" />
-    <Folder Include="Pages\RegistrarUsuario\" />
-    <Folder Include="Pages\Pedido\" />
-    <Folder Include="Pages\Producto\" />
-    <Folder Include="wwwroot\App\Cliente\" />
-    <Folder Include="wwwroot\App\Categoria\" />
-    <Folder Include="wwwroot\App\RegistrarUsuario\" />
-    <Folder Include="wwwroot\App\Producto\" />
-    <Folder Include="wwwroot\App\Pedido\" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,6 +80,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Categoria\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Categoria\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Cliente\Edit.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Cliente\Grid.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Login_RegistrarUsuario\Add.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Login_RegistrarUsuario\Login.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Pedido\Edit.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Pedido\Grid.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Producto\Edit.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\App\Producto\Grid.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="wwwroot\Assets\%40types\Apexchart\index.d.ts" />
     <TypeScriptCompile Include="wwwroot\Assets\%40types\axios\index.d.ts" />
     <TypeScriptCompile Include="wwwroot\Assets\%40types\bootstrap-validator\bvenums.ts" />

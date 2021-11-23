@@ -58,5 +58,10 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="StoredProcedures" />
+    <Folder Include="StoredProcedures\Cliente" />
+    <Folder Include="StoredProcedures\Categoria" />
+    <Folder Include="StoredProcedures\Pedido" />
+    <Folder Include="StoredProcedures\Login_RegistrarUsuario" />
+    <Folder Include="StoredProcedures\Producto" />
   </ItemGroup>
 </Project>
