@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class RegistrarNuevoUsuario : DBEntity
+    public class RegistrarNuevoUsuarioEntity : DBEntity
     {
     }
 }

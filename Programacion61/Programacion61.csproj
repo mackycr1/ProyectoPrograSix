@@ -10,8 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Categoria\" />
+    <Folder Include="Pages\Cliente\" />
+    <Folder Include="Pages\RegistrarUsuario\" />
+    <Folder Include="Pages\Pedido\" />
+    <Folder Include="Pages\Producto\" />
     <Folder Include="wwwroot\App\Cliente\" />
     <Folder Include="wwwroot\App\Categoria\" />
+    <Folder Include="wwwroot\App\RegistrarUsuario\" />
     <Folder Include="wwwroot\App\Producto\" />
     <Folder Include="wwwroot\App\Pedido\" />
   </ItemGroup>

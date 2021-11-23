@@ -17,12 +17,9 @@ namespace Programacion61
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<ICategoriaService, CategoriaService>();
             services.AddTransient<IPedidoService, PedidoService>();
-
             services.AddTransient<IProductoService, ProductoService>();
-
-            services.AddTransient<ICategoriaService, CategoriaService>();
-            services.AddTransient<ICategoriaService, CategoriaService>();
-
+            services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<IRegistrarUsuarioService, RegistrarUsuarioService>();
 
             return services;
         }

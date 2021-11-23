@@ -5,38 +5,21 @@ using System.Threading.Tasks;
 
 namespace WBL
 {
-    public interface IUsuario
+    public interface IUsuarioService
     {
-        Task<DBEntity> Insert(Usuario entity);
-        Task<DBEntity> Update(ProductoEntity entity);
-        Task<DBEntity> Delete(ProductoEntity entity);
         Task<IEnumerable<ProductoEntity>> Get();
-        Task<ProductoEntity> GetById(ProductoEntity entity);
+
+        Task<ProductoEntity> GetById(UsuarioEntity entity);
     }
 
-    public class Usuario : IUsuario
+    public class UsuarioService : IUsuarioService
     {
-        public Task<DBEntity> Delete(ProductoEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<IEnumerable<ProductoEntity>> Get()
         {
             throw new NotImplementedException();
         }
 
-        public Task<ProductoEntity> GetById(ProductoEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DBEntity> Insert(ProductoEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DBEntity> Update(ProductoEntity entity)
+        public Task<ProductoEntity> GetById(UsuarioEntity entity)
         {
             throw new NotImplementedException();
         }

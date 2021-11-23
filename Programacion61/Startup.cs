@@ -24,6 +24,9 @@ namespace Programacion61
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Registers custom services, so they can be used
+            services.AddDIContainer();
+
             services.AddRazorPages().AddJsonOptions(option =>
             {
                 option.JsonSerializerOptions.DictionaryKeyPolicy = null;
