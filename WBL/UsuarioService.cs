@@ -16,9 +16,9 @@ namespace WBL
         Task<DBEntity> Update(UsuarioEntity entity);
         Task<DBEntity> Delete(UsuarioEntity entity);
         Task<IEnumerable<UsuarioEntity>> Get();
-        Task<ProductoEntity> GetById(UsuarioEntity entity);
+        Task<UsuarioEntity> GetById(UsuarioEntity entity);
 
-        Task<IEnumerable<UsuarioEntity >> GetLista();
+        Task<IEnumerable<UsuarioEntity >> GetRolLista();
     }
 
     public class UsuarioService : IUsuarioService
@@ -52,34 +52,115 @@ namespace WBL
             }
         }
 
-        Task<DBEntity> IUsuarioService.Delete(UsuarioEntity entity)
+        //Metodo Delete
+        public async Task<DBEntity> Delete(UsuarioEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("UsuarioEliminar", new
+                {
+                    entity.Usuario,
+                });
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
-        Task<IEnumerable<UsuarioEntity>> IUsuarioService.Get()
+        //Metodo Get
+        public async Task<IEnumerable<UsuarioEntity>> Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var result = sql.QueryAsync<UsuarioEntity>("UsuarioObtener");
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        Task<ProductoEntity> IUsuarioService.GetById(UsuarioEntity entity)
+        //Metodo GetById
+        public async Task<UsuarioEntity> GetById(UsuarioEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryFirstAsync<UsuarioEntity>("UsuarioObtener", new
+                { entity.Usuario });
+
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
-        Task<IEnumerable<UsuarioEntity>> IUsuarioService.GetLista()
+        //Metodo Lista de Roles
+        public async Task<IEnumerable<UsuarioEntity>> GetRolLista()
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var result = sql.QueryAsync<UsuarioEntity>("RolLista");
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        Task<DBEntity> IUsuarioService.Login(UsuarioEntity entity)
+        //Metodo Login
+        public async Task<DBEntity> Login(UsuarioEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("Login", new
+                {
+                    entity.Usuario,
+                    entity.Clave,
+                });
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        Task<DBEntity> IUsuarioService.Update(UsuarioEntity entity)
+        //Metodo Update
+        public async Task<DBEntity> Update(UsuarioEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("UsuarioActualizar", new
+                {
+                    entity.Usuario,
+                    entity.Nombre,
+                    entity.Clave,
+                    entity.Estado,
+                    entity.Rol_id
+                });
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         #endregion
