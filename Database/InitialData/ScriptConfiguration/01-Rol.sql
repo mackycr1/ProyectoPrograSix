@@ -12,7 +12,8 @@ VALUES
 
 ----ACTUALIZAR DATOS---
 UPDATE P SET
-  P.Rol_id = TM.Rol_Description
+  P.Rol_id = TM.Rol_id,
+  P.Rol_Description = TM.Rol_Description
 FROM Rol P
 INNER JOIN #RolTemp TM
     ON P.Rol_id= TM.Rol_id

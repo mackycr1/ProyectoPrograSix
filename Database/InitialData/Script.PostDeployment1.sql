@@ -10,4 +10,4 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 :r .\ScriptConfiguration\01-Rol.sql
-
+:r .\ScriptConfiguration\02-Usuario.sql

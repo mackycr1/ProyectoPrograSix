@@ -5,7 +5,7 @@ AS BEGIN
 
   SELECT 
      a.Usuario,
-	 a.Nombre_Completo,
+	 a.Nombre,
 	 a.Estado,
 	 b.Rol_id,
      b.Rol_Description

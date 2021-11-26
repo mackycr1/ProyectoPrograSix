@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[UsuarioActualizar]
     @Usuario varchar(10),
-	@NombreCompleto varchar(50),
-	@Clave varchar(50),
+	@Nombre varchar(250),
+	@Clave varchar(MAX),
 	@Estado bit,
 	@Rol_id int
 
@@ -13,8 +13,8 @@ SET NOCOUNT ON
     BEGIN TRY
 	
 	UPDATE usuario SET
-	 Nombre_Completo = @NombreCompleto,
-	 Clave = @Clave,
+	 Nombre = @Nombre,
+	 Clave = ENCRYPTBYPASSPHRASE('password', @Clave),
 	 Estado = @Estado,
 	 Rol_id = @Rol_id
 	WHERE 

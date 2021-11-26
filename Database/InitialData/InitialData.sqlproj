@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ScriptConfiguration\01-Rol.sql" />
+    <None Include="ScriptConfiguration\02-Usuario.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />

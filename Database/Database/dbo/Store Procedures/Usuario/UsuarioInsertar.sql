@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[UsuarioInsertar]
 	@Usuario varchar(10),
-	@NombreCompleto varchar(50),
-	@Clave varchar(50),
+	@Nombre varchar(250),
+	@Clave varchar(MAX),
 	@Estado bit,
 	@Rol_id int
 
@@ -14,7 +14,7 @@ SET NOCOUNT ON
 	
 	INSERT INTO Usuario
 	(Usuario,
-	 Nombre_Completo,
+	 Nombre,
 	 Clave,
 	 Estado,
 	 Rol_id
@@ -22,8 +22,8 @@ SET NOCOUNT ON
 	VALUES
 	(
 	@Usuario,
-	@NombreCompleto,
-	@Clave,
+	@Nombre,
+	ENCRYPTBYPASSPHRASE('password', @Clave),
 	@Estado,
 	@Rol_id
 	)
