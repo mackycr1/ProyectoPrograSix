@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Usuario\Edit.ts" />
+    <Content Remove="wwwroot\App\Usuario\Grid.ts" />
     <Content Remove="wwwroot\App\Categoria\Edit.ts" />
     <Content Remove="wwwroot\App\Categoria\Grid.ts" />
     <Content Remove="wwwroot\App\Cliente\Edit.ts" />
     <Content Remove="wwwroot\App\Cliente\Grid.ts" />
-    <Content Remove="wwwroot\App\Login_RegistrarUsuario\Add.ts" />
-    <Content Remove="wwwroot\App\Login_RegistrarUsuario\Login.ts" />
     <Content Remove="wwwroot\App\Pedido\Edit.ts" />
     <Content Remove="wwwroot\App\Pedido\Grid.ts" />
     <Content Remove="wwwroot\App\Producto\Edit.ts" />
@@ -80,18 +80,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Usuario\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Usuario\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Categoria\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Categoria\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Cliente\Edit.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="wwwroot\App\Cliente\Grid.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="wwwroot\App\Login_RegistrarUsuario\Add.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="wwwroot\App\Login_RegistrarUsuario\Login.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="wwwroot\App\Pedido\Edit.ts">

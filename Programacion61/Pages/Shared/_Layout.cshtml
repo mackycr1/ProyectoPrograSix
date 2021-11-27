@@ -29,21 +29,38 @@
                         <a class="nav-link active" aria-current="page" asp-page="/Cliente/Grid">Clientes</a>
                     </li>
 
-                    @*Categorias*@
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-page="/Categoria/Grid">Categorias</a>
-                    </li>
-
-                    @*Productos*@
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-page="/Producto/Grid">Productos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*Productos*@
+                            <li><a class="dropdown-item" aria-current="page" asp-page="/Producto/Grid">Productos</a></li>
+                            @*Categorias*@
+                            <li><a class="dropdown-item" aria-current="page" asp-page="/Categoria/Grid">Categorías</a></li>
+                        </ul>
                     </li>
 
                     @*Pedidos*@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" asp-page="/Pedido/Grid">Pedidos</a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Seguridad
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" aria-current="page" asp-page="/Usuario/Grid">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="#">Contraseña</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Salir</a></li>
+                        </ul>
+                    </li>
                 </ul>
+                <span class="navbar-text">
+                    Usuario Administrador
+                </span>
             </div>
         </div>
     </nav>

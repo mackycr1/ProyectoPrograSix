@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Programacion61.Pages.RegistrarUsuario
+namespace Programacion61.Pages.Usuario
 {
-    public class LoginModel : PageModel
+    public class EditModel : PageModel
     {
         public void OnGet()
         {

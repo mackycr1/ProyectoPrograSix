@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Programacion61.Pages.Login_RegistrarUsuario
+namespace Programacion61.Pages.Usuario
 {
-    public class AddModel : PageModel
+    public class GridModel : PageModel
     {
         public void OnGet()
         {

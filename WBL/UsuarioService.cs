@@ -14,6 +14,7 @@ namespace WBL
         Task<DBEntity> Login(UsuarioEntity entity);
         Task<DBEntity> Create(UsuarioEntity entity);
         Task<DBEntity> Update(UsuarioEntity entity);
+        Task<DBEntity> UpdateClave(UsuarioEntity entity);
         Task<DBEntity> Delete(UsuarioEntity entity);
         Task<IEnumerable<UsuarioEntity>> Get();
         Task<UsuarioEntity> GetById(UsuarioEntity entity);
@@ -163,6 +164,26 @@ namespace WBL
 
         }
 
+
+        //Metodo Update Clave
+        public async Task<DBEntity> UpdateClave(UsuarioEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("UsuarioActualizarClave", new
+                {
+                    entity.Usuario,
+                    entity.Clave
+                });
+
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
         #endregion
     }
 }
