@@ -18,8 +18,6 @@ namespace WBL
         Task<DBEntity> Delete(UsuarioEntity entity);
         Task<IEnumerable<UsuarioEntity>> Get();
         Task<UsuarioEntity> GetById(UsuarioEntity entity);
-
-        Task<IEnumerable<UsuarioEntity >> GetRolLista();
     }
 
     public class UsuarioService : IUsuarioService
@@ -104,22 +102,6 @@ namespace WBL
                 throw;
             }
 
-        }
-
-        //Metodo Lista de Roles
-        public async Task<IEnumerable<UsuarioEntity>> GetRolLista()
-        {
-
-            try
-            {
-                var result = sql.QueryAsync<UsuarioEntity>("RolLista");
-
-                return await result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         //Metodo Login
