@@ -6,6 +6,7 @@ AS BEGIN
   SELECT 
      a.Usuario,
 	 a.Nombre,
+     CONVERT(VARCHAR(MAX),DECRYPTBYPASSPHRASE('password', a.Clave)) Clave,
 	 a.Estado,
 	 b.Rol_id,
      b.Rol_Description

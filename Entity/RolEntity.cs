@@ -9,7 +9,7 @@ namespace Entity
 {
     public class RolEntity : DBEntity
     {
-        public int Rol_id { get; }
-        public string Rol_Description { get; }
+        public int? Rol_id { get; set; }
+        public string Rol_Description { get; set; }
     }
 }
