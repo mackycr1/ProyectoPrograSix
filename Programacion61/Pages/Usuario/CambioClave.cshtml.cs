@@ -9,15 +9,13 @@ using WBL;
 
 namespace Programacion61.Pages.Usuario
 {
-    public class EditModel : PageModel
+    public class CambioClaveModel : PageModel
     {
         private readonly IUsuarioService UsuarioService;
-        //private readonly IRolService RolService;
 
-        public EditModel(IUsuarioService UsuarioService)
+        public CambioClaveModel(IUsuarioService UsuarioService)
         {
             this.UsuarioService = UsuarioService;
-            //this.RolService = RolService;
         }
 
         [BindProperty]
@@ -25,10 +23,9 @@ namespace Programacion61.Pages.Usuario
 
         public UsuarioEntity Entity { get; set; } = new UsuarioEntity();
 
-        //public IEnumerable<RolEntity> RolLista { get; set; } = new List<RolEntity>();
-
         [BindProperty(SupportsGet = true)]
         public String Id { get; set; }
+        public String SegundaClave { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
@@ -39,8 +36,6 @@ namespace Programacion61.Pages.Usuario
                     Entity = await UsuarioService.GetById(new() { Usuario = Id });
                 }
 
-               //RolLista = await RolService.GetRolLista();
-               
                 return Page();
             }
             catch (Exception ex)
@@ -58,16 +53,9 @@ namespace Programacion61.Pages.Usuario
             try
             {
                 var result = new DBEntity();
-                if (!String.IsNullOrEmpty(Entity.Usuario))
+                if (String.Equals(Entity.Clave,SegundaClave))
                 {
-                    result = await UsuarioService.Update(Entity);
-
-
-                }
-                else
-                {
-                    result = await UsuarioService.Create(Entity);
-
+                    result = await UsuarioService.UpdateClave(Entity);
                 }
 
                 return new JsonResult(result);

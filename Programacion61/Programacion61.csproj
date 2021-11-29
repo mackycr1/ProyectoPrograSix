@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Usuario\CambiarClave.ts" />
     <Content Remove="wwwroot\App\Usuario\Edit.ts" />
     <Content Remove="wwwroot\App\Usuario\Grid.ts" />
     <Content Remove="wwwroot\App\Categoria\Edit.ts" />
@@ -80,6 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Usuario\CambiarClave.ts" />
     <TypeScriptCompile Include="wwwroot\App\Usuario\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Usuario\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Categoria\Edit.ts" />
