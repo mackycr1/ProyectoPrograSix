@@ -7,7 +7,6 @@
 	[DireccionCliente] VARCHAR(250) NOT NULL,
 	[FechaDeNacimientoCliente] DATETIME NOT NULL,
 	[TelefonoCliente] VARCHAR(250) NOT NULL,
-	[CedulaCliente] VARCHAR(250) NOT NULL
-
+	[CedulaCliente] VARCHAR(250) NOT NULL CONSTRAINT UC_Cliente UNIQUE(CedulaCliente)
 ) WITH (DATA_COMPRESSION = PAGE)
 GO
