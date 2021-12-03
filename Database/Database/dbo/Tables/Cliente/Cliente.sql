@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[Cliente]
+(
+	[Id_Nombre] INT NOT NULL PRIMARY KEY, 
+    [Nombre] VARCHAR(50) NOT NULL,
+	[PrimerApellido] VARCHAR(50) NOT NULL,
+	[SegundoApellido] VARCHAR(50) NOT NULL,
+	[Direccion] VARCHAR(250) NOT NULL,
+	[FechaDeNacimiento] DATETIME NOT NULL,
+	[Telefono] VARCHAR(250) NOT NULL,
+	[Cedula] VARCHAR(250) NOT NULL
+
+)WITH (DATA_COMPRESSION = PAGE)
+
+GO
