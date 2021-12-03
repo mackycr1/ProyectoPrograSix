@@ -1,6 +1,7 @@
 ﻿using Entity;
 using System;
 using System.Collections.Generic;
+using BD;
 using System.Threading.Tasks;
 
 namespace WBL
@@ -16,29 +17,96 @@ namespace WBL
 
     public class ClienteService : IClienteService
     {
-        public Task<DBEntity> Delete(ClienteEntity entity)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly IDataAccess sql;
+
+        public ClienteService (IDataAccess sql)
+	    {
+            this.sql = sql;
+	    }
 
         public Task<IEnumerable<ClienteEntity>> Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<ProductoEntity>("ClienteObtener");
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }       
         }
 
         public Task<ClienteEntity> GetById(ClienteEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryFirstAsync<ProductoEntity>("ClienteObtener", new { entity.IdIdCliente });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<DBEntity> Insert(ClienteEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("ClienteInsertar", new
+                {
+                    entity.NombreCliente,
+                    entity.PrimerApellidoCliente,
+                    entity.SegundoApellidoCliente,
+                    entity.DireccionCliente,
+                    entity.FechaDeNacimientoCliente,
+                    entity.TelefonoCliente,
+                    entity.CedulaCliente
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<DBEntity> Update(ClienteEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("ClienteActualizar", new
+                {
+                    entity.IdCliente,
+                    entity.NombreCliente,
+                    entity.PrimerApellidoCliente,
+                    entity.SegundoApellidoCliente,
+                    entity.DireccionCliente,
+                    entity.FechaDeNacimientoCliente,
+                    entity.TelefonoCliente,
+                    entity.CedulaCliente
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
+        public Task<DBEntity> Delete(ClienteEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("ClienteEliminar", new { entity.IdCliente });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }
