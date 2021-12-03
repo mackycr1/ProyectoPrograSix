@@ -1,7 +1,7 @@
 ﻿@page
 @model Programacion61.Pages.Cliente.EditModel
 @{
-    //ViewData["Title"] = (Model.id.HasValue ? "Actualizar Cliente" : "Nueva Cliente");
+   ViewData["Title"] = (Model.id.HasValue ? "Actualizar Cliente" : "Nuevo Cliente");
 }
 
 
@@ -39,19 +39,21 @@
                 @*Direccion del Cliente*@
                 <div class="form-group mb-3">
                     <label for="Entity.DireccionCliente" class="form-label">Direccion</label>
-                    <textarea rows="3" cols="50" class="form-control" asp-for="Entity.DireccionCliente" v-model="Entity.DireccionCliente" maxlength="250" required />
+                    <textarea rows="3" cols="50" class="form-control" asp-for="Entity.DireccionCliente" v-model="Entity.DireccionCliente" maxlength="250" required ></textarea>
                 </div>
 
                 @*Fecha de Nacimiento del Cliente*@
-                <div class="form-group mb-3">
-                    <label for="Entity.FechaDeNacimientoCliente" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" asp-for="Entity.FechaDeNacimientoCliente" v-model="Entity.FechaDeNacimientoCliente" required />
-                </div>
+            <div class="form-group mb-3">
+                <label for="Entity.FechaDeNacimientoCliente" class="form-label">Fecha de Nacimiento</label>
+                @*<input type="date" class="form-control" asp-for="Entity.FechaDeNacimientoCliente" v-model="Entity.FechaDeNacimientoCliente" required />*@
+                <b-form-datepicker id="FechaDeNacimientoCliente" name="FechaDeNacimientoCliente" v-model="Entity.FechaDeNacimientoCliente"  class="form-control"  required>
+                </b-form-datepicker>
+            </div>
 
                 @*Telefono del Cliente*@
                 <div class="form-group mb-3">
                     <label for="Entity.TelefonoCliente" class="form-label">Nu. Telefono</label>
-                    <input type="text" class="form-control" asp-for="Entity.TelefonoCliente" v-model="Entity.TelefonoCliente" maxlength="50" required />
+                    <input type="number" class="form-control" asp-for="Entity.TelefonoCliente" v-model="Entity.TelefonoCliente" maxlength="50" required />
                 </div>
 
                 @*Cedula del Cliente*@

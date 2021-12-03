@@ -22,7 +22,9 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Apellidos</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
                                 <th>Direccion</th>
                                 <th>Fecha de Nacimiento</th>
                                 <th>Nu. Telefono</th>
@@ -36,9 +38,10 @@
                             <tr>
                                 <td>@item.IdCliente</td>
                                 <td>@item.NombreCliente</td>
-                                <td>@item.PrimerApellidoCliente + " " + @item.SegundoApellidoCliente</td>
+                                <td>@item.PrimerApellidoCliente</td>
+                                <td>@item.SegundoApellidoCliente</td>
                                 <td>@item.DireccionCliente</td>
-                                <td>@item.FechaDeNacimientoCliente</td>
+                                <td>@item.FechaDeNacimientoCliente.ToString("dd/MM/yyyy")</td>
                                 <td>@item.TelefonoCliente</td>
                                 <td>@item.CedulaCliente</td>
                                 <td>
