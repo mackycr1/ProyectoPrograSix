@@ -1,8 +1,8 @@
 ﻿using Entity;
 using System;
 using System.Collections.Generic;
-using BD;
 using System.Threading.Tasks;
+using DB;
 
 namespace WBL
 {
@@ -24,11 +24,11 @@ namespace WBL
             this.sql = sql;
 	    }
 
-        public Task<IEnumerable<ClienteEntity>> Get()
+        public async Task<IEnumerable<ClienteEntity>> Get()
         {
             try
             {
-                var result = sql.QueryAsync<ProductoEntity>("ClienteObtener");
+                var result = sql.QueryAsync<ClienteEntity>("ClienteObtener");
                 return await result;
             }
             catch (Exception)
@@ -37,11 +37,11 @@ namespace WBL
             }       
         }
 
-        public Task<ClienteEntity> GetById(ClienteEntity entity)
+        public async Task<ClienteEntity> GetById(ClienteEntity entity)
         {
             try
             {
-                var result = sql.QueryFirstAsync<ProductoEntity>("ClienteObtener", new { entity.IdIdCliente });
+                var result = sql.QueryFirstAsync<ClienteEntity>("ClienteObtener", new { entity.IdCliente });
                 return await result;
             }
             catch (Exception)
@@ -50,7 +50,7 @@ namespace WBL
             }
         }
 
-        public Task<DBEntity> Insert(ClienteEntity entity)
+        public async Task<DBEntity> Insert(ClienteEntity entity)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace WBL
             }
         }
 
-        public Task<DBEntity> Update(ClienteEntity entity)
+        public async Task<DBEntity> Update(ClienteEntity entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace WBL
             }
         }
 
-        public Task<DBEntity> Delete(ClienteEntity entity)
+        public async Task<DBEntity> Delete(ClienteEntity entity)
         {
             try
             {
