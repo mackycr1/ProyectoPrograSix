@@ -1,14 +1,13 @@
 ﻿CREATE TABLE [dbo].[Cliente]
 (
-	[Id_Nombre] INT NOT NULL PRIMARY KEY, 
-    [Nombre] VARCHAR(50) NOT NULL,
-	[PrimerApellido] VARCHAR(50) NOT NULL,
-	[SegundoApellido] VARCHAR(50) NOT NULL,
-	[Direccion] VARCHAR(250) NOT NULL,
-	[FechaDeNacimiento] DATETIME NOT NULL,
-	[Telefono] VARCHAR(250) NOT NULL,
-	[Cedula] VARCHAR(250) NOT NULL
+	[IdCliente] INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_ClienteId PRIMARY KEY CLUSTERED([IdCliente]),
+    [NombreCliente] VARCHAR(50) NOT NULL,
+	[PrimerApellidoCliente] VARCHAR(50) NOT NULL,
+	[SegundoApellidoCliente] VARCHAR(50) NOT NULL,
+	[DireccionCliente] VARCHAR(250) NOT NULL,
+	[FechaDeNacimientoCliente] DATETIME NOT NULL,
+	[TelefonoCliente] VARCHAR(250) NOT NULL,
+	[CedulaCliente] VARCHAR(250) NOT NULL
 
-)WITH (DATA_COMPRESSION = PAGE)
-
+) WITH (DATA_COMPRESSION = PAGE)
 GO
