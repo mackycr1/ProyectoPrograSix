@@ -8,12 +8,12 @@ AS BEGIN
 
 	--BEGIN TRANSACTION TRANS
 	
-		IF EXISTS (SELECT COUNT(*) FROM [dbo].[Pedido] AS P WHERE P.IdCliente = @IdCliente)  
+		--IF EXISTS (SELECT COUNT(*) FROM [dbo].[Pedido] AS P WHERE P.IdCliente = @IdCliente)  
 			
-			SELECT -1 AS CodeError, 'El cliente realizo un pedido no se puede eliminar al cliente' AS MsgError
+		--	SELECT -1 AS CodeError, 'El cliente realizo un pedido no se puede eliminar al cliente' AS MsgError
 			
 
-		ELSE	
+		--ELSE	
 
 			--BEGIN TRY 
 			
