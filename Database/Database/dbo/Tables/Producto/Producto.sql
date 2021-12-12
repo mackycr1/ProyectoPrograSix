@@ -5,6 +5,7 @@
     [Nombre] VARCHAR(250) NOT NULL,
     [Cantidad] INT NOT NULL, 
     [Caracteristicas] VARCHAR(250) NOT NULL,
+    [Precio] INT NOT NULL,
     [Estado] BIT NOT NULL
 ) WITH (DATA_COMPRESSION = PAGE)
 GO

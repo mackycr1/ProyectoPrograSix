@@ -4,6 +4,7 @@
 	@Nombre VARCHAR(250),
 	@Cantidad INT,
 	@Caracteristicas VARCHAR(250),
+	@Precio INT,
 	@Estado BIT
 
 AS BEGIN
@@ -19,6 +20,7 @@ AS BEGIN
 				,Nombre=@Nombre
 				,Cantidad=@Cantidad
 				,Caracteristicas=@Caracteristicas
+				,Precio=@Precio
 				,Estado=@Estado
 			WHERE IdProducto = @IdProducto
 			

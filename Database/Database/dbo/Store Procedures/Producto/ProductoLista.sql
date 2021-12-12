@@ -10,6 +10,7 @@ BEGIN
 			,Nombre
 			,Cantidad
 			,Caracteristicas
+			,Precio
 			,Estado
 	FROM [dbo].[Producto]
 	

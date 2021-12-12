@@ -3,6 +3,7 @@
 	@Nombre VARCHAR(250),
 	@Cantidad INT,
 	@Caracteristicas VARCHAR(250),
+	@Precio INT,
 	@Estado BIT
 
 AS BEGIN
@@ -19,6 +20,7 @@ AS BEGIN
 				,Nombre
 				,Cantidad
 				,Caracteristicas
+				,Precio
 				,Estado
 			)
 			VALUES
@@ -27,6 +29,7 @@ AS BEGIN
 				,@Nombre
 				,@Cantidad
 				,@Caracteristicas
+				,@Precio
 				,@Estado
 			)
 			
