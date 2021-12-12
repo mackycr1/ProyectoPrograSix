@@ -7,6 +7,7 @@ SET NOCOUNT ON
 		P.Nombre,
 		P.Cantidad,
 		P.Caracteristicas,
+		P.Precio,
 		P.Estado,
 
 		
