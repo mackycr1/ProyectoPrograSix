@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[ProductoInsertar]      
+﻿CREATE PROCEDURE [dbo].[ProductoActualizar]
+	@IdProducto INT,
 	@IdCategoria INT,
 	@Nombre VARCHAR(250),
 	@Cantidad INT,
@@ -13,22 +14,13 @@ AS BEGIN
 	
 		BEGIN TRY 
 			
-			INSERT INTO [dbo].[Producto]
-			(
-				 IdCategoria
-				,Nombre
-				,Cantidad
-				,Caracteristicas
-				,Estado
-			)
-			VALUES
-			(
-				 @IdCategoria
-				,@Nombre
-				,@Cantidad
-				,@Caracteristicas
-				,@Estado
-			)
+			UPDATE [dbo].[Producto]
+			SET  IdCategoria=@IdCategoria
+				,Nombre=@Nombre
+				,Cantidad=@Cantidad
+				,Caracteristicas=@Caracteristicas
+				,Estado=@Estado
+			WHERE IdProducto = @IdProducto
 			
 			COMMIT TRANSACTION TRANS
 			SELECT 0 AS CodeError, '' AS MsgError
@@ -45,3 +37,4 @@ AS BEGIN
 		END CATCH
 END
 GO
+
