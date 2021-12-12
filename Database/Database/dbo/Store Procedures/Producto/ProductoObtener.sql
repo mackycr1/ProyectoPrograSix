@@ -4,12 +4,18 @@ AS BEGIN
 SET NOCOUNT ON
 	SELECT
 		P.IdProducto,
-		C.IdCategoria,
 		P.Nombre,
 		P.Cantidad,
 		P.Caracteristicas,
-		P.Estado
-	FROM dbo.Producto P, Categoria C
+		P.Estado,
+
+		
+		C.IdCategoria,
+		C.NombreCategoria
+
+	FROM dbo.Producto P 
+	LEFT JOIN dbo.Categoria C
+	ON P.IdProducto= C.IdCategoria
 	WHERE
 		(@IdProducto IS NULL OR IdProducto=@IdProducto)
 END
