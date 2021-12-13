@@ -13,6 +13,7 @@ namespace WBL
         Task<DBEntity> Update(CategoriaEntity entity);
         Task<DBEntity> Delete(CategoriaEntity entity);
         Task<IEnumerable<CategoriaEntity>> Get();
+        Task<IEnumerable<CategoriaEntity>> GetLista();
         Task<CategoriaEntity> GetById(CategoriaEntity entity);
     }
 
@@ -47,7 +48,7 @@ namespace WBL
 
                 return await result;
             }
-            catch (Exception EX)
+            catch (Exception)
             {
 
                 throw;
