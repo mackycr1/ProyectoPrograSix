@@ -2,7 +2,6 @@
 @model Programacion61.Pages.Categoria.EditModel
 @{
     ViewData["Title"] = (Model.id.HasValue ? "Actualizar Categoria" : "Nueva Categoria");
-
 }
 
 <div id="AppEdit" class="container-fluid" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
