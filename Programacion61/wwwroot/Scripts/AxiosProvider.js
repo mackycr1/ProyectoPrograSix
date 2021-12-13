@@ -21,6 +21,15 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        /*Categoria*/
+        AxiosProvider.CategoriaEliminar = function (id) { return axios.delete("Categoria/Grid?handler=Delete&id=" + id).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.CategoriaGuardar = function (entity) { return axios.post("Categoria/Edit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
     })(AxiosProvider = App.AxiosProvider || (App.AxiosProvider = {}));
 })(App || (App = {}));
 //# sourceMappingURL=AxiosProvider.js.map
