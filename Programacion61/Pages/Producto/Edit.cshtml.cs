@@ -14,9 +14,10 @@ namespace Programacion61.Pages.Producto
         private readonly IProductoService productoService;
         private readonly ICategoriaService categoriaService;
 
-        public EditModel(IProductoService productoService)
+        public EditModel(IProductoService productoService, ICategoriaService categoriaService)
         {
             this.productoService = productoService;
+            this.categoriaService = categoriaService;
         }
 
         //Enables us to call the customer entity attributes
@@ -40,6 +41,7 @@ namespace Programacion61.Pages.Producto
                     Entity = await productoService.GetById(new() { IdProducto = id });
                 }
 
+                CategoriaLista = await categoriaService.GetLista();
                 return Page();
             }
             catch (Exception ex)
