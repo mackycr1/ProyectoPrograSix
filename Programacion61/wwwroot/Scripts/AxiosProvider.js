@@ -30,6 +30,15 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        /*Producto*/
+        AxiosProvider.ProductoEliminar = function (id) { return axios.delete("Producto/Grid?handler=Delete&id=" + id).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.ProductoGuardar = function (entity) { return axios.post("Producto/Edit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
     })(AxiosProvider = App.AxiosProvider || (App.AxiosProvider = {}));
 })(App || (App = {}));
 //# sourceMappingURL=AxiosProvider.js.map
