@@ -53,7 +53,6 @@ namespace WBL
 
         }
 
-
         public async Task<ProductoEntity> GetById(ProductoEntity entity)
         {
             try
