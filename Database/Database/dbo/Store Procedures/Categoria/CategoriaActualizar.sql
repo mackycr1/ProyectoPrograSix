@@ -10,8 +10,7 @@ SET NOCOUNT ON
     BEGIN TRY
 	
 	UPDATE dbo.Categoria SET
-	IdCategoria= @IdCategoria,
-	NombreCategoria= @NombreCategoria
+		NombreCategoria= @NombreCategoria
 	WHERE
 		IdCategoria=@IdCategoria
 
