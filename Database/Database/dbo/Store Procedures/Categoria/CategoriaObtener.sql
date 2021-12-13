@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[CategoriaObtener]
-	@IdCategoria int
+	@IdCategoria int = null
 AS BEGIN
   SET NOCOUNT ON
 
