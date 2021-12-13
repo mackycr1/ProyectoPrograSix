@@ -8,5 +8,7 @@ namespace Entity
 {
     public class CategoriaEntity : DBEntity
     {
+        public int? IdCategoria { get; set; }
+        public string NombreCategoria { get; set; }
     }
 }

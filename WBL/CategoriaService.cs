@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DB;
 
 namespace WBL
 {
@@ -17,29 +18,99 @@ namespace WBL
 
     public class CategoriaService : ICategoriaService
     {
-        public Task<DBEntity> Delete(CategoriaEntity entity)
+        private readonly IDataAccess sql;
+
+        public CategoriaService(IDataAccess sql)
         {
-            throw new NotImplementedException();
+            this.sql = sql;
         }
 
-        public Task<IEnumerable<CategoriaEntity>> Get()
+        public async Task<IEnumerable<CategoriaEntity>> Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<CategoriaEntity>("CategoriaObtener");
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<CategoriaEntity> GetById(CategoriaEntity entity)
+        public async Task<IEnumerable<CategoriaEntity>> GetLista()
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var result = sql.QueryAsync<CategoriaEntity>("CategoriaLista");
+
+                return await result;
+            }
+            catch (Exception EX)
+            {
+
+                throw;
+            }
         }
 
-        public Task<DBEntity> Insert(CategoriaEntity entity)
+        public async Task<CategoriaEntity> GetById(CategoriaEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryFirstAsync<CategoriaEntity>("CategoriaObtener", new { entity.IdCategoria });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DBEntity> Update(CategoriaEntity entity)
+        public async Task<DBEntity> Insert(CategoriaEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("CategoriaInsertar", new
+                {
+                    entity.NombreCategoria
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<DBEntity> Update(CategoriaEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("CategoriaActualizar", new
+                {
+                    entity.IdCategoria,
+                    entity.NombreCategoria
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<DBEntity> Delete(CategoriaEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("CategoriaEliminar", new { entity.IdCategoria });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
