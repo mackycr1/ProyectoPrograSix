@@ -6,6 +6,6 @@ AS BEGIN
 	SELECT 
 		IdCategoria,
 		NombreCategoria
-	FROM dbo.Categoria WHERE IdCategoria=@IdCategoria
+	FROM dbo.Categoria WHERE (@IdCategoria IS NULL OR IdCategoria = @IdCategoria)
 
 END
