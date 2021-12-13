@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DB;
 
 namespace WBL
 {
@@ -11,34 +12,115 @@ namespace WBL
         Task<DBEntity> Update(ProductoEntity entity);
         Task<DBEntity> Delete(ProductoEntity entity);
         Task<IEnumerable<ProductoEntity>> Get();
+        Task<IEnumerable<ProductoEntity>> GetLista();
         Task<ProductoEntity> GetById(ProductoEntity entity);
     }
 
     public class ProductoService : IProductoService
     {
-        public Task<DBEntity> Delete(ProductoEntity entity)
+        private readonly IDataAccess sql;
+
+        public ProductoService(IDataAccess sql)
         {
-            throw new NotImplementedException();
+            this.sql = sql;
         }
 
-        public Task<IEnumerable<ProductoEntity>> Get()
+        public async Task<IEnumerable<ProductoEntity>> Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<ProductoEntity>("ProductoObtener");
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<ProductoEntity> GetById(ProductoEntity entity)
+        public async Task<IEnumerable<ProductoEntity>> GetLista()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<ProductoEntity>("dbo.ProductoLista");
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
-        public Task<DBEntity> Insert(ProductoEntity entity)
+
+        public async Task<ProductoEntity> GetById(ProductoEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryFirstAsync<ProductoEntity>("ProductoObtener", new { entity.IdProducto });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DBEntity> Update(ProductoEntity entity)
+        public async Task<DBEntity> Insert(ProductoEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("ProductoInsertar", new
+                {
+                    entity.IdCategoria,
+                    entity.Nombre,
+                    entity.Cantidad,
+                    entity.Caracteristicas,
+                    entity.Precio,
+                    entity.Estado
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<DBEntity> Update(ProductoEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("ProductoActualizar", new
+                {
+                    entity.IdProducto,
+                    entity.IdCategoria,
+                    entity.Nombre,
+                    entity.Cantidad,
+                    entity.Caracteristicas,
+                    entity.Precio,
+                    entity.Estado
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<DBEntity> Delete(ProductoEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync("ProductoEliminar", new { entity.IdProducto });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
