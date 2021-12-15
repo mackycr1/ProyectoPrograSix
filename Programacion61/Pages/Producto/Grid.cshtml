@@ -33,26 +33,26 @@
                         <tbody>
                             @foreach (var item in Model.GridList)
                             {
-                                <tr>
-                                    <td>@item.IdProducto</td>
-                                    <td>@item.Categoria.NombreCategoria</td>
-                                    <td>@item.Nombre</td>
-                                    <td>@item.Cantidad</td>
-                                    <td>@item.Caracteristicas</td>
-                                    <td>@item.Precio</td>
-                                    <td>@item.Estado</td>
-                                    <td>
-                                        @*Edit Button*@
-                                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
-                                            <i class="bx bx-edit-alt"></i>
-                                        </a>
+                            <tr>
+                                <td>@item.IdProducto</td>
+                                <td>@item.Categoria.NombreCategoria</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.Caracteristicas</td>
+                                <td>@item.Precio</td>
+                                <td>@(item.Estado?"Activo":"Inactivo")</td>
+                                <td>
+                                    @*Edit Button*@
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
+                                        <i class="bx bx-edit-alt"></i>
+                                    </a>
 
-                                        @*Delete Button*@
-                                        <button type="button" class="btn btn-danger" onclick="ProductoGrid.OnClickDelete(@item.IdProducto)">
-                                            <i class="bx bx-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                    @*Delete Button*@
+                                    <button type="button" class="btn btn-danger" onclick="ProductoGrid.OnClickDelete(@item.IdProducto)">
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
