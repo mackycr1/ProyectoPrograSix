@@ -12,3 +12,4 @@ Post-Deployment Script Template
 :r .\ScriptConfiguration\01-Rol.sql
 :r .\ScriptConfiguration\02-Usuario.sql
 :r .\ScriptConfiguration\03-Categoria.sql
+:r .\ScriptConfiguration\04-Pedido.sql

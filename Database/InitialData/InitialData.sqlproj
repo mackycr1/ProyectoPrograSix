@@ -62,6 +62,7 @@
     <None Include="ScriptConfiguration\01-Rol.sql" />
     <None Include="ScriptConfiguration\02-Usuario.sql" />
     <None Include="ScriptConfiguration\03-Categoria.sql" />
+    <None Include="ScriptConfiguration\04-Pedido.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
