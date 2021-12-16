@@ -19,7 +19,7 @@ AS BEGIN
 			
 			INSERT INTO [dbo].[Pedido]
 			(
-				,IdCliente
+				IdCliente
 				,IdProducto
 				,Fecha
 				,Cantidad
@@ -33,7 +33,7 @@ AS BEGIN
 			)
 			VALUES
 			(
-				,@IdCliente
+				@IdCliente
 				,@Fecha
 				,@IdProducto
 				,@Cantidad
