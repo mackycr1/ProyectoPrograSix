@@ -5,6 +5,7 @@ SET NOCOUNT ON
 	SELECT
 				pe.IdPedido,
 				pe.IdCliente,
+				pe.IdProducto,
 				pe.Fecha,
 				pe.IdProducto,
 				pe.Cantidad,
@@ -13,7 +14,6 @@ SET NOCOUNT ON
 				pe.SubTotal,
 				pe.IVA,
 				pe.Total,
-				P.IdProducto,
 				P.Nombre,
 				C.NombreCliente,
 				C.PrimerApellidoCliente,
