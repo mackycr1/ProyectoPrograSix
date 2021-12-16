@@ -11,6 +11,8 @@ namespace WBL
         Task<DBEntity> Insert(ClienteEntity entity);
         Task<DBEntity> Update(ClienteEntity entity);
         Task<DBEntity> Delete(ClienteEntity entity);
+        Task<IEnumerable<ClienteEntity>> GetLista();
+
         Task<IEnumerable<ClienteEntity>> Get();
         Task<ClienteEntity> GetById(ClienteEntity entity);
     }
@@ -50,6 +52,20 @@ namespace WBL
             }
         }
 
+        public async Task<IEnumerable<ClienteEntity>> GetLista()
+        {
+            try
+            {
+                var result = sql.QueryAsync<ClienteEntity>("dbo.ClienteLista");
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         public async Task<DBEntity> Insert(ClienteEntity entity)
         {
             try

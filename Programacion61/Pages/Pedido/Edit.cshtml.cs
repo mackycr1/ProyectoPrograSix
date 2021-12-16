@@ -44,6 +44,7 @@ namespace Programacion61.Pages.Pedido
                     Entity = await pedidoService.GetById(new() { IdPedido = id });
                 }
 
+                ClienteLista = await clienteService.GetLista();
                 ProductoLista = await productoService.GetLista();
                 return Page();
             }
