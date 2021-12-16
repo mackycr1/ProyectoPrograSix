@@ -11,18 +11,14 @@ SET NOCOUNT ON
 				C.SegundoApellidoCliente,
 				C.TelefonoCliente,
 				pe.IdProducto,
-				P.Nombre,
 				pe.Fecha,
 				pe.Cantidad,
 				pe.PrecioUnitario,
 				pe.Envio,
 				pe.SubTotal,
 				pe.IVA,
-				pe.Total
-
-				
-
-				
+				pe.Total,
+				P.Nombre
 	FROM dbo.Pedido pe
 	LEFT JOIN dbo.Producto P
 	ON pe.IdProducto= P.IdProducto
