@@ -19,8 +19,8 @@ AS BEGIN
 			UPDATE [dbo].[Pedido]
 			SET  
 				IdCliente=@IdCliente
-				,Fecha=@Fecha
 				,IdProducto=@IdProducto
+				,Fecha=@Fecha
 				,Cantidad=@Cantidad
 				,PrecioUnitario=@PrecioUnitario
 				,Envio=@Envio

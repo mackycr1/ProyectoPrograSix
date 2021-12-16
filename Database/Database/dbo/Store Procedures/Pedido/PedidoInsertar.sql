@@ -22,8 +22,8 @@ AS BEGIN
 			(
 				IdPedido
 				,IdCliente
-				,Fecha
 				,IdProducto
+				,Fecha
 				,Cantidad
 				,PrecioUnitario
 				,Envio
