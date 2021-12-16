@@ -20,7 +20,7 @@ SET NOCOUNT ON
 				C.TelefonoCliente
 	FROM dbo.Pedido pe
 	LEFT JOIN dbo.Producto P
-	ON pe.IdPedido= P.IdProducto
+	ON pe.IdProducto= P.IdProducto
 	LEFT JOIN dbo.Cliente C
 	ON pe.IdCliente= C.IdCliente
 	WHERE
