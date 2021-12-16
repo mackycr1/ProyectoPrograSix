@@ -21,8 +21,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Cliente</th>
-                                <th>Fecha</th>
                                 <th>Producto</th>
+                                <th>Fecha</th>
                                 <th>Cantidad</th>
                                 <th>PrecioUnitario</th>
                                 <th>Envio</th>
@@ -35,29 +35,29 @@
                         <tbody>
                             @foreach (var item in Model.GridList)
                             {
-                <tr>
-                    <td>@item.IdPedido</td>
-                    <td>@item.Cliente.NombreCliente</td>
-                    <td>@item.Fecha</td>
-                    <td>@item.IdProducto</td>
-                    <td>@item.Cantidad</td>
-                    <td>@item.PrecioUnitario</td>
-                    <td>@item.Envio</td>
-                    <td>@item.SubTotal</td>
-                    <td>@item.IVA</td>
-                    <td>@item.Total</td>
-                    <td>
-                        @*@Edit Button@*@
-                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdPedido">
-                            <i class="bx bx-edit-alt"></i>
-                        </a>
+                            <tr>
+                                <td>@item.IdPedido</td>
+                                <td>@(item.Cliente.NombreCliente + " " + item.Cliente.PrimerApellidoCliente + " " + item.Cliente.SegundoApellidoCliente)</td>
+                                <td>@item.Producto.Nombre</td>
+                                <td>@item.Fecha.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.PrecioUnitario</td>
+                                <td>@item.Envio</td>
+                                <td>@item.SubTotal</td>
+                                <td>@item.IVA</td>
+                                <td>@item.Total</td>
+                                <td>
+                                    @*@Edit Button@*@
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdPedido">
+                                        <i class="bx bx-edit-alt"></i>
+                                    </a>
 
-                        @*@Delete Button@*@
-                        <button type="button" class="btn btn-danger" onclick="PedidoGrid.OnClickDelete(@item.IdPedido)">
-                            <i class="bx bx-trash"></i>
-                        </button>
-                    </td>
-                </tr>}
+                                    @*@Delete Button@*@
+                                    <button type="button" class="btn btn-danger" onclick="PedidoGrid.OnClickDelete(@item.IdPedido)">
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>}
                         </tbody>
                     </table>
                 </div>

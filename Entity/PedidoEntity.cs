@@ -18,7 +18,7 @@ namespace Entity
         public int? IdCliente { get; set; }
         public int? IdProducto { get; set; }
 
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
 
         public int Cantidad { get; set; }
 
