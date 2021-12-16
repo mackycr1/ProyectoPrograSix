@@ -7,7 +7,6 @@ SET NOCOUNT ON
 				pe.IdCliente,
 				pe.IdProducto,
 				pe.Fecha,
-				pe.IdProducto,
 				pe.Cantidad,
 				pe.PrecioUnitario,
 				pe.Envio,
