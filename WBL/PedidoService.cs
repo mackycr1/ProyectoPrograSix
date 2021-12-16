@@ -94,7 +94,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<PedidoEntity, ClienteEntity, ProductoEntity>("ProductoObtener", "IdPedido, IdCliente, IdProducto");
+                var result = sql.QueryAsync<PedidoEntity, ClienteEntity, ProductoEntity>("ProductoObtener", "IdPedido,IdCliente,IdProducto");
                 return await result;
 
             }

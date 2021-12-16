@@ -32,7 +32,6 @@ namespace Entity
 
         public decimal Total { get; set; }
 
-
         public virtual ClienteEntity Cliente { get; set; }
         public virtual ProductoEntity Producto { get; set; }
 
