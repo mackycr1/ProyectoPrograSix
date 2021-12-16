@@ -18,7 +18,7 @@ AS BEGIN
 		BEGIN TRY 
 			
 			INSERT INTO [dbo].[Pedido]
-			(
+			( 
 				IdCliente
 				,IdProducto
 				,Fecha
@@ -28,14 +28,12 @@ AS BEGIN
 				,SubTotal
 				,IVA
 				,Total
-
-	
 			)
 			VALUES
 			(
 				@IdCliente
-				,@Fecha
 				,@IdProducto
+				,@Fecha
 				,@Cantidad
 				,@PrecioUnitario
 				,@Envio
