@@ -16,6 +16,10 @@ namespace App.AxiosProvider   {
     /*Producto*/
     export const ProductoEliminar = (id) => axios.delete<DBEntity>("Producto/Grid?handler=Delete&id=" + id).then(({ data }) => data);
     export const ProductoGuardar = (entity) => axios.post<DBEntity>("Producto/Edit", entity).then(({ data }) => data);
+
+    /*Pedido*/
+    export const PedidoEliminar = (id) => axios.delete<DBEntity>("Pedido/Grid?handler=Delete&id=" + id).then(({ data }) => data);
+    export const PedidoGuardar = (entity) => axios.post<DBEntity>("Pedido/Edit", entity).then(({ data }) => data);
 }
 
 

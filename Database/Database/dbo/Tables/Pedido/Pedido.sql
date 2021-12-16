@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Pedido]
 (
 	[IdPedido] INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_PedidoId PRIMARY KEY CLUSTERED([IdPedido]),
-    [Cliente] VARCHAR(50) NOT NULL,
+    [IdCliente] INT NOT NULL,
 	[Fecha] DATETIME NOT NULL,
 	[IdProducto] INT NOT NULL CONSTRAINT [FK_Pedido_Producto] FOREIGN KEY ([IdProducto]) REFERENCES dbo.Producto([IdProducto]),
 	[Cantidad] INT NOT NULL,

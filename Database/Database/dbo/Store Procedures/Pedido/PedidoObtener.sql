@@ -4,7 +4,7 @@ AS BEGIN
 SET NOCOUNT ON
 	SELECT
 				pe.IdPedido,
-				pe.Cliente,
+				pe.IdCliente,
 				pe.Fecha,
 				pe.IdProducto,
 				pe.Cantidad,
@@ -21,6 +21,8 @@ SET NOCOUNT ON
 	FROM dbo.Pedido pe
 	LEFT JOIN dbo.Producto P
 	ON pe.IdPedido= P.IdProducto
+	LEFT JOIN dbo.Cliente C
+	ON pe.IdCliente= C.IdCliente
 	WHERE
 		(@IdPedido IS NULL OR IdPedido=@IdPedido)
 END

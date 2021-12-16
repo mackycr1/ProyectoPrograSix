@@ -6,7 +6,7 @@ BEGIN
 	SET NOCOUNT ON
 
 	SELECT IdPedido
-				,Cliente
+				,IdCliente
 				,Fecha
 				,IdProducto
 				,Cantidad

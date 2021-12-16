@@ -1,7 +1,9 @@
 ﻿using Entity;
+using DB;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 
 namespace WBL
 {
@@ -15,31 +17,108 @@ namespace WBL
         Task<PedidoEntity> GetById(PedidoEntity entity);
     }
 
+
     public class PedidoService : IPedidoService
     {
-        public Task<DBEntity> Delete(PedidoEntity entity)
+        private readonly IDataAccess sql;
+
+        public PedidoService(IDataAccess sql)
         {
-            throw new NotImplementedException();
+            this.sql = sql;
         }
 
-        public Task<IEnumerable<PedidoEntity>> Get()
+    
+        public async Task<DBEntity> Insert(PedidoEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("PedidoInsertar", new
+                {
+                    entity.IdCliente,
+                    entity.IdProducto,
+                    entity.Fecha,
+                    entity.Cantidad,
+                    entity.PrecioUnitario,
+                    entity.Envio,
+                    entity.SubTotal,
+                    entity.IVA,
+                    entity.Total
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<PedidoEntity> GetById(PedidoEntity entity)
+        public async Task<DBEntity> Update(PedidoEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("PedidoActualizar", new
+                {
+                    entity.IdPedido,
+                    entity.IdCliente,
+                    entity.IdProducto,
+                    entity.Fecha,
+                    entity.Cantidad,
+                    entity.PrecioUnitario,
+                    entity.Envio,
+                    entity.SubTotal,
+                    entity.IVA,
+                    entity.Total
+                });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DBEntity> Insert(PedidoEntity entity)
+        public async Task<DBEntity> Delete(PedidoEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.ExecuteAsync("PedidoEliminar", new { entity.IdPedido });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DBEntity> Update(PedidoEntity entity)
+        public async Task<IEnumerable<PedidoEntity>> Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<PedidoEntity, ClienteEntity, ProductoEntity>("ProductoObtener", "IdPedido, IdCliente, IdProducto");
+                return await result;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<PedidoEntity> GetById(PedidoEntity entity)
+        {
+            try
+            {
+                var result = sql.QueryFirstAsync<PedidoEntity>("PedidoObtener", new { entity.IdPedido });
+                return await result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
+  
+
+
 }
+
+

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoInsertar]      
 	@IdPedido INT,
-	@Cliente VARCHAR(50),
+	@IdCliente INT,
 	@Fecha datetime,
 	@IdProducto INT,
 	@Cantidad INT,
@@ -21,7 +21,7 @@ AS BEGIN
 			INSERT INTO [dbo].[Pedido]
 			(
 				IdPedido
-				,Cliente
+				,IdCliente
 				,Fecha
 				,IdProducto
 				,Cantidad
@@ -36,7 +36,7 @@ AS BEGIN
 			VALUES
 			(
 				 @IdPedido
-				,@Cliente
+				,@IdCliente
 				,@Fecha
 				,@IdProducto
 				,@Cantidad

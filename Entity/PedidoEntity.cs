@@ -8,5 +8,33 @@ namespace Entity
 {
     public class PedidoEntity : DBEntity
     {
+        public PedidoEntity()
+        {
+            Cliente = Cliente ?? new ClienteEntity();
+            Producto = Producto ?? new ProductoEntity();
+        }
+
+        public int? IdPedido { get; set; }
+        public int? IdCliente { get; set; }
+        public int? IdProducto { get; set; }
+
+        public DateTime Fecha { get; set; }
+
+        public int Cantidad { get; set; }
+
+        public int PrecioUnitario { get; set; }
+
+        public int Envio { get; set; }
+
+        public int SubTotal { get; set; }
+
+        public decimal IVA { get; set; }
+
+        public decimal Total { get; set; }
+
+
+        public virtual ClienteEntity Cliente { get; set; }
+        public virtual ProductoEntity Producto { get; set; }
+
     }
 }

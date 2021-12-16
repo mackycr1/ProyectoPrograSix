@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoActualizar]
 	@IdPedido INT,
-	@Cliente VARCHAR(50),
+	@IdCliente INT,
 	@Fecha datetime,
 	@IdProducto INT,
 	@Cantidad INT,
@@ -18,7 +18,7 @@ AS BEGIN
 			
 			UPDATE [dbo].[Pedido]
 			SET  
-				Cliente=@Cliente
+				IdCliente=@IdCliente
 				,Fecha=@Fecha
 				,IdProducto=@IdProducto
 				,Cantidad=@Cantidad
