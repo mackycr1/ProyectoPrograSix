@@ -11,6 +11,7 @@ namespace Entity
         public PedidoEntity()
         {
             Cliente = Cliente ?? new ClienteEntity();
+            Producto = Producto ?? new ProductoEntity();
         }
 
         public int? IdPedido { get; set; }
@@ -37,6 +38,7 @@ namespace Entity
         public decimal Total { get; set; }
 
         public virtual ClienteEntity Cliente { get; set; }
+        public virtual ProductoEntity Producto { get; set; }
 
     }
 }

@@ -17,6 +17,19 @@
 
                 <input type="hidden" asp-for="Entity.IdPedido" v-model="Entity.IdPedido" />
 
+                @*Codigo*@
+                <div class="form-group mb-3">
+                    <label for="Entity.Codigo" class="form-label">Codigo</label>
+                    <input type="text" readonly id="Codigo" name="Codigo" v-model="Entity.Codigo" class="form-control" required />
+                </div>
+
+                @*Fecha*@
+                <div class="form-group mb-3">
+                    <label for="Entity.Fecha" class="form-label">Fecha</label>
+                    <b-form-datepicker id="Fecha" name="Fecha" v-model="Entity.Fecha" class="form-control" required>
+                    </b-form-datepicker>
+                </div>
+
                 @*Cliente*@
                 <div class="form-group mb-3">
                     <label for="Entity.IdCliente" class="form-label"></label>Cliente
@@ -26,31 +39,26 @@
                     </select>
                 </div>
 
-                @*Codigo*@
+                @*Producto*@
                 <div class="form-group mb-3">
-                    <label for="Entity.Codigo" class="form-label">Codigo</label>
-                    <input type="text" readonly id="Codigo" name="Codigo" v-model="Entity.Codigo" class="form-control" required />
-                </div>
-
-                @*Fecha de Pago*@
-                <div class="form-group mb-3">
-                    <label for="Entity.Fecha" class="form-label">Fecha</label>
-                    <b-form-datepicker id="Fecha" name="Fecha" v-model="Entity.Fecha" class="form-control" required>
-                    </b-form-datepicker>
-                </div>
-
-                @*<div class="form-group mb-3">
                     <label for="Entity.Producto" class="form-label">Producto</label>
 
                     <select asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
-                        asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
+                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
                     </select>
-                </div>*@
+                </div>
+
                 @*Cantidad*@
-                <!--<div class="form-group mb-3">
+                <div class="form-group mb-3">
                     <label for="Entity.Cantidad" class="form-label">Cantidad</label>
                     <input type="number" class="form-control" asp-for="Entity.Cantidad" v-model="Entity.Cantidad" required />
-                </div>-->
+                </div>
+
+                @*Precio Unitario*@
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
+                    <input readonly type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
+                </div>
 
                 @*Envio*@
                 <div class="form-group mb-3">

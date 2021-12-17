@@ -35,8 +35,11 @@ namespace WBL
                 var result = sql.ExecuteAsync("PedidoInsertar", new
                 {
                     entity.IdCliente,
+                    entity.IdProducto,
                     entity.Codigo,
                     entity.Fecha,
+                    entity.Cantidad,
+                    entity.PrecioUnitario,
                     entity.Envio,
                     entity.SubTotal,
                     entity.IVA,
@@ -58,8 +61,11 @@ namespace WBL
                 {
                     entity.IdPedido,
                     entity.IdCliente,
+                    entity.IdProducto,
                     entity.Codigo,
                     entity.Fecha,
+                    entity.Cantidad,
+                    entity.PrecioUnitario,
                     entity.Envio,
                     entity.SubTotal,
                     entity.IVA,
@@ -90,7 +96,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<PedidoEntity, ClienteEntity>("PedidoObtener", "IdPedido,IdCliente");
+                var result = sql.QueryAsync<PedidoEntity, ClienteEntity, ProductoEntity>("PedidoObtener", "IdPedido,IdCliente,IdProducto");
                 return await result;
 
             }

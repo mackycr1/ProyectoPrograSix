@@ -13,6 +13,6 @@ BEGIN
 			,Precio
 			,Estado
 	FROM [dbo].[Producto]
-	WHERE Cantidad <> 0 
+	WHERE Cantidad <> 0 AND Estado = 1
 	
 END
