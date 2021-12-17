@@ -8,6 +8,15 @@ var CategoriaEdit;
             Entity: Entity
         },
         methods: {
+            ClienteServicio: function (entity) {
+                console.log(entity);
+                if (entity.IdCategoria == null) {
+                    return App.AxiosProvider.CategoriaGuardar(entity);
+                }
+                else {
+                    return App.AxiosProvider.CategoriaActualizar(entity);
+                }
+            },
             Save: function () {
                 if (BValidateData(this.Formulario)) {
                     Loading.fire("Guardando");
