@@ -11,11 +11,11 @@ namespace Programacion61.Pages.Categoria
 {
     public class EditModel : PageModel
     {
-        private readonly ServiceApi service;
+        private readonly ICategoriaService categoriaService;
 
-        public EditModel(ServiceApi service)
+        public EditModel(ICategoriaService categoriaService)
         {
-            this.service = service;
+            this.categoriaService = categoriaService;
         }
 
         //Enables us to call the customer entity attributes
@@ -34,7 +34,7 @@ namespace Programacion61.Pages.Categoria
                 //Edit
                 if (id.HasValue)
                 {
-                    Entity = await service.CategoriaGetById(id.Value);
+                    Entity = await categoriaService.GetById(new() { IdCategoria = id });
                 }
 
                 return Page();
@@ -45,28 +45,28 @@ namespace Programacion61.Pages.Categoria
             }
         }
 
-        //public async Task<IActionResult> OnPost()
-        //{
-        //    try
-        //    {
-        //        var result = new DBEntity();
+        public async Task<IActionResult> OnPost()
+        {
+            try
+            {
+                var result = new DBEntity();
 
-        //        Edit
-        //        if (Entity.IdCategoria.HasValue)
-        //        {
-        //            result = await categoriaService.Update(Entity);
-        //        }
-        //        else
-        //        {
-        //            result = await categoriaService.Insert(Entity);
-        //        }
+                //Edit
+                if (Entity.IdCategoria.HasValue)
+                {
+                    result = await categoriaService.Update(Entity);
+                }
+                else
+                {
+                    result = await categoriaService.Insert(Entity);
+                }
 
-        //        return new JsonResult(result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
-        //    }
-        //}
+                return new JsonResult(result);
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+            }
+        }
     }
 }
