@@ -15,9 +15,9 @@ AS BEGIN
 			C.TelefonoCliente,
 			PR.IdProducto,
 			PR.Nombre,
+			PR.Precio,
 			PE.Codigo,
 			PE.Fecha,
-			PR.Precio,
 			PE.SubTotal,
 			PE.IVA,
 			PE.Total

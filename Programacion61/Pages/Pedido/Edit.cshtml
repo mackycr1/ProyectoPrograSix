@@ -43,8 +43,8 @@
                 <div class="form-group mb-3">
                     <label for="Entity.Producto" class="form-label">Producto</label>
 
-                    <select asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
-                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
+                    <select id="producto" asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
+                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))"  required>
                     </select>
                 </div>
 
@@ -56,9 +56,11 @@
 
                 @*Precio Unitario*@
                 <div class="form-group mb-3">
-                    <label for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
-                    <input readonly type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
+                    <label  for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
+                    <input id="precioUniatirio" readonly type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
                 </div>
+
+
 
                 @*Envio*@
                 <div class="form-group mb-3">
@@ -102,4 +104,7 @@
 @section Scripts
 {
     <script src="~/App/Pedido/Edit.js"></script>
+
+
+    </script>
 }
