@@ -1,8 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoActualizar]
 	@IdPedido INT,
 	@IdCliente INT,
+	@IdProducto INT,
 	@Codigo NVARCHAR(200),
 	@Fecha datetime,
+	@Cantidad INT,
+	@PrecioUnitario INT,
 	@Envio INT,
 	@SubTotal INT,
 	@IVA decimal(18,2),
@@ -16,8 +19,11 @@ AS BEGIN
 			
 			UPDATE [dbo].[Pedido]
 			SET  IdCliente = @IdCliente
+				,IdProducto = @IdProducto
 				,Codigo = @Codigo
 				,Fecha = @Fecha
+				,Cantidad = @Cantidad
+				,PrecioUnitario = @PrecioUnitario
 				,Envio = @Envio
 				,SubTotal = @SubTotal
 				,IVA = @IVA

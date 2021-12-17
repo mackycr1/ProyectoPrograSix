@@ -13,15 +13,18 @@ AS BEGIN
 			C.PrimerAPEllidoCliente,
 			C.SegundoAPEllidoCliente,
 			C.TelefonoCliente,
+			PR.IdProducto,
+			PR.Nombre,
 			PE.Codigo,
 			PE.Fecha,
-			PE.Envio,
+			PR.Precio,
 			PE.SubTotal,
 			PE.IVA,
 			PE.Total
 	FROM [dbo].[Pedido] PE
 	LEFT JOIN dbo.Cliente C
 	ON PE.IdCliente = C.IdCliente
+	LEFT JOIN dbo.Producto PR
+	ON PE.IdProducto = PR.IdProducto
 	WHERE (@IdPedido IS NULL OR IdPedido = @IdPedido)
 END
-GO

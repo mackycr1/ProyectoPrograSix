@@ -17,9 +17,16 @@ namespace Entity
 
         public int? IdCliente { get; set; }
 
+        public int? IdProducto { get; set; }
+
+
         public string Codigo { get; set; } = "OD"  +  new Random().Next(25500000);
         
         public DateTime Fecha { get; set; } = DateTime.Now;
+
+        public int Cantidad { get; set; }
+
+        public int PrecioUnitario { get; set; }
 
         public int Envio { get; set; }
 
