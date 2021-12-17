@@ -6,18 +6,15 @@ using DB;
 using Microsoft.Extensions.DependencyInjection;
 using WBL;
 
-namespace WebAPI
+namespace WebApi
 {
     public static class ContainerExtension
     {
 
         public static IServiceCollection AddDIContainer(this IServiceCollection services)
         {
-
             services.AddSingleton<IDataAccess, DataAccess>();
-            services.AddTransient<IProductoService, ProductoService>();
-            services.AddTransient<ICategoriaService, CategoriaService>();        
-
+            services.AddTransient<IUsuarioService, UsuarioService>();
             return services;
         }
     }
