@@ -11,40 +11,45 @@ namespace Programacion61.Pages.Categoria
 {
     public class GridModel : PageModel
     {
-        private readonly ICategoriaService categoriaService;
-        public IEnumerable<CategoriaEntity> GridList { get; set; } = new List<CategoriaEntity>();
+        private readonly ServiceApi service;
 
-        public GridModel(ICategoriaService categoriaService)
+        public GridModel(ServiceApi service)
         {
-            this.categoriaService = categoriaService;
+            this.service = service;
         }
+
+        public IEnumerable<CategoriaEntity> GridList { get; set; } = new List<CategoriaEntity>();
 
 
         public async Task<IActionResult> OnGet()
         {
+
             try
             {
-                //Populates the list with the results returned from the customer get method.
-                GridList = await categoriaService.Get();
+                GridList = await service.CategoriaGet();
+
                 return Page();
+
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
+
         }
 
-        public async Task<IActionResult> OnDelete(int id)
-        {
-            try
-            {
-                var result = await categoriaService.Delete(new() { IdCategoria = id });
-                return new JsonResult(result);
-            }
-            catch (Exception ex)
-            {
-                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
-            }
-        }
+        //public async Task<IActionResult> OnDelete(int id)
+        //{
+        //    try
+        //    {
+        //        var result = await categoriaService.Delete(new() { IdCategoria = id });
+        //        return new JsonResult(result);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+        //    }
+        //}
     }
 }

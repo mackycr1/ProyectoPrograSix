@@ -11,6 +11,17 @@
             },
             methods:
             {
+                ClienteServicio(entity) {
+                    console.log(entity);
+                    if (entity.IdCategoria == null) {
+                        return App.AxiosProvider.CategoriaGuardar(entity);
+
+                    } else {
+                        return App.AxiosProvider.CategoriaActualizar(entity);
+
+                    }
+                },
+
                 Save() {
                     if (BValidateData(this.Formulario)) {
                         Loading.fire("Guardando");
