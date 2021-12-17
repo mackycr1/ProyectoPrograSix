@@ -15,6 +15,7 @@ namespace WebApi
         {
             services.AddSingleton<IDataAccess, DataAccess>();
             services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<ICategoriaService, CategoriaService>();
             return services;
         }
     }
