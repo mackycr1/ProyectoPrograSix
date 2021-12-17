@@ -8,8 +8,7 @@ AS BEGIN
 	
 SELECT	PE.IdPedido,
 			PE.IdCliente,
-			C.IdCliente,
-			PR.IdProducto,
+			--PE.IdProducto,
 			PE.Codigo,
 			PE.Fecha,
 			PE.Cantidad,

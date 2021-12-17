@@ -44,5 +44,18 @@ namespace Programacion61.Pages.Pedido
                 return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
         }
+
+        //public async Task<IActionResult> OnCalcCosts(int id)
+        //{
+        //    try
+        //    {
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });   
+        //    }
+        //}
+
     }
 }
