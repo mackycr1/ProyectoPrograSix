@@ -21,10 +21,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Cliente</th>
-                                <th>Producto</th>
+                                <th>Nu. Telefono Cliente </th>
+                                <th>Codigo</th>
                                 <th>Fecha</th>
-                                <th>Cantidad</th>
-                                <th>PrecioUnitario</th>
                                 <th>Envio</th>
                                 <th>SubTotal</th>
                                 <th>IVA</th>
@@ -38,10 +37,9 @@
                             <tr>
                                 <td>@item.IdPedido</td>
                                 <td>@(item.Cliente.NombreCliente + " " + item.Cliente.PrimerApellidoCliente + " " + item.Cliente.SegundoApellidoCliente)</td>
-                                <td>@item.Producto.Nombre</td>
+                                <td>@item.Cliente.TelefonoCliente</td>
+                                <td>@item.Codigo</td>
                                 <td>@item.Fecha.ToString("dd/MM/yyyy")</td>
-                                <td>@item.Cantidad</td>
-                                <td>@item.PrecioUnitario</td>
                                 <td>@item.Envio</td>
                                 <td>@item.SubTotal</td>
                                 <td>@item.IVA</td>

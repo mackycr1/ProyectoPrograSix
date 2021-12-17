@@ -1,9 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoInsertar]      
 	@IdCliente INT,
+	@Codigo NVARCHAR(200),
 	@Fecha datetime,
-	@IdProducto INT,
-	@Cantidad INT,
-	@PrecioUnitario INT,
 	@Envio INT,
 	@SubTotal INT,
 	@IVA decimal(18,2),
@@ -20,10 +18,8 @@ AS BEGIN
 			INSERT INTO [dbo].[Pedido]
 			( 
 				IdCliente
-				,IdProducto
+				,Codigo
 				,Fecha
-				,Cantidad
-				,PrecioUnitario
 				,Envio
 				,SubTotal
 				,IVA
@@ -32,15 +28,12 @@ AS BEGIN
 			VALUES
 			(
 				@IdCliente
-				,@IdProducto
+				,@Codigo
 				,@Fecha
-				,@Cantidad
-				,@PrecioUnitario
 				,@Envio
 				,@SubTotal
 				,@IVA
 				,@Total
-
 			)
 			
 			COMMIT TRANSACTION TRANS
