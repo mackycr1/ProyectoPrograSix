@@ -8,19 +8,22 @@ AS BEGIN
 	
 	SELECT	PE.IdPedido,
 			PE.IdCliente,
+			PE.Codigo,
+			PE.Fecha,
+			PE.SubTotal,
+			PE.IVA,
+			PE.Total,
+
 			C.IdCliente,
 			C.NombreCliente,
 			C.PrimerAPEllidoCliente,
 			C.SegundoAPEllidoCliente,
 			C.TelefonoCliente,
+
 			PR.IdProducto,
 			PR.Nombre,
-			PE.Codigo,
-			PE.Fecha,
-			PR.Precio,
-			PE.SubTotal,
-			PE.IVA,
-			PE.Total
+			PR.Precio
+			
 	FROM [dbo].[Pedido] PE
 	LEFT JOIN dbo.Cliente C
 	ON PE.IdCliente = C.IdCliente
