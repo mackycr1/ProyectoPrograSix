@@ -8,12 +8,8 @@ AS BEGIN
 	
 SELECT	PE.IdPedido,
 			PE.IdCliente,
-			--PE.IdProducto,
 			PE.Codigo,
 			PE.Fecha,
-			PE.Cantidad,
-			PE.PrecioUnitario,
-			PE.Envio,
 			PE.SubTotal,
 			PE.IVA,
 			PE.Total,
@@ -25,7 +21,8 @@ SELECT	PE.IdPedido,
 			C.TelefonoCliente,
 
 			PR.IdProducto,
-			PR.Nombre
+			PR.Nombre,
+			PR.Precio
 			
 	FROM [dbo].[Pedido] PE
 	LEFT JOIN dbo.Cliente C
