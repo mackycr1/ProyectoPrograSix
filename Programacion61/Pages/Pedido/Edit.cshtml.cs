@@ -15,7 +15,7 @@ namespace Programacion61.Pages.Pedido
         private readonly IProductoService productoService;
         private readonly IClienteService clienteService;
 
-        public EditModel(IPedidoService pedidoService,IProductoService productoService, IClienteService clienteService)
+        public EditModel(IPedidoService pedidoService, IProductoService productoService, IClienteService clienteService)
         {
             this.pedidoService = pedidoService;
             this.productoService = productoService;
@@ -47,6 +47,7 @@ namespace Programacion61.Pages.Pedido
                 //Populates the Drop Down options
                 ClienteLista = await clienteService.GetLista();
                 ProductoLista = await productoService.GetLista();
+
                 return Page();
             }
             catch (Exception ex)

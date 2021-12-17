@@ -6,16 +6,16 @@ AS BEGIN
   
 	SET NOCOUNT ON
 
-	--BEGIN TRANSACTION TRANS
+		
+	IF EXISTS (SELECT * FROM [dbo].[Pedido] AS P WHERE P.IdCliente = @IdCliente)  
+			
+		SELECT -1 AS CodeError, 'El cliente realizo un pedido no se puede eliminar al cliente' AS MsgError
+			
+	ELSE	
 	
-		--IF EXISTS (SELECT COUNT(*) FROM [dbo].[Pedido] AS P WHERE P.IdCliente = @IdCliente)  
+		BEGIN TRANSACTION TRANS
 			
-		--	SELECT -1 AS CodeError, 'El cliente realizo un pedido no se puede eliminar al cliente' AS MsgError
-			
-
-		--ELSE	
-
-			--BEGIN TRY 
+			BEGIN TRY 
 			
 				DELETE FROM [dbo].[Cliente]
 				WHERE IdCliente = @IdCliente
@@ -23,16 +23,15 @@ AS BEGIN
 				COMMIT TRANSACTION TRANS
 				SELECT 0 AS CodeError, '' AS MsgError
 
-			----END TRY
+			END TRY
 
-			----BEGIN CATCH
+			BEGIN CATCH
 			
-			--	SELECT   ERROR_NUMBER() AS CodeError
-			--			,ERROR_MESSAGE() AS MsgError
+				SELECT   ERROR_NUMBER() AS CodeError
+						,ERROR_MESSAGE() AS MsgError
 		
-			--	ROLLBACK TRANSACTION TRANS
+				ROLLBACK TRANSACTION TRANS
 
-			--END CATCH
+			END CATCH
 
-		END	--IF STATEMENT END
---END
+END	--IF STATEMENT END

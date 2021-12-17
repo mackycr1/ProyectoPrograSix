@@ -6,7 +6,7 @@ AS BEGIN
 
 	SET NOCOUNT ON
 	
-	SELECT	PE.IdPedido,
+SELECT	PE.IdPedido,
 			PE.IdCliente,
 			PE.Codigo,
 			PE.Fecha,
