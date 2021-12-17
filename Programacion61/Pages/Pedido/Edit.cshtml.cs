@@ -44,6 +44,7 @@ namespace Programacion61.Pages.Pedido
                     Entity = await pedidoService.GetById(new() { IdPedido = id });
                 }
 
+                //Populates the Drop Down options
                 ClienteLista = await clienteService.GetLista();
                 ProductoLista = await productoService.GetLista();
                 return Page();
@@ -54,6 +55,7 @@ namespace Programacion61.Pages.Pedido
             }
         }
 
+        //Insert and Update Operations
         public async Task<IActionResult> OnPost()
         {
             try

@@ -26,12 +26,10 @@
                     </select>
                 </div>
 
+                @*Codigo*@
                 <div class="form-group mb-3">
-                    <label for="Entity.Producto" class="form-label">Producto</label>
-
-                    <select asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
-                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
-                    </select>
+                    <label for="Entity.Codigo" class="form-label">Codigo</label>
+                    <input type="text" readonly id="Codigo" name="Codigo" v-model="Entity.Codigo" class="form-control" required />
                 </div>
 
                 @*Fecha de Pago*@
@@ -41,19 +39,18 @@
                     </b-form-datepicker>
                 </div>
 
+                @*<div class="form-group mb-3">
+                    <label for="Entity.Producto" class="form-label">Producto</label>
 
-
+                    <select asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
+                        asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
+                    </select>
+                </div>*@
                 @*Cantidad*@
-                <div class="form-group mb-3">
+                <!--<div class="form-group mb-3">
                     <label for="Entity.Cantidad" class="form-label">Cantidad</label>
                     <input type="number" class="form-control" asp-for="Entity.Cantidad" v-model="Entity.Cantidad" required />
-                </div>
-
-                @*PrecioUnitario*@
-                <div class="form-group mb-3">
-                    <label for="Entity.PrecioUnitario" class="form-label">PrecioUnitario</label>
-                    <input type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
-                </div>
+                </div>-->
 
                 @*Envio*@
                 <div class="form-group mb-3">
@@ -64,19 +61,19 @@
                 @*SubTotal*@
                 <div class="form-group mb-3">
                     <label for="Entity.SubTotal" class="form-label">SubTotal</label>
-                    <input type="number" class="form-control" asp-for="Entity.SubTotal" v-model="Entity.SubTotal" required />
+                    <input type="text" readonly class="form-control" asp-for="Entity.SubTotal" v-model="Entity.SubTotal" required />
                 </div>
 
                 @*IVA*@
                 <div class="form-group mb-3">
                     <label for="Entity.IVA" class="form-label">IVA 13%</label>
-                    <input type="number" class="form-control" asp-for="Entity.IVA" v-model="Entity.IVA" required />
+                    <input type="text" readonly class="form-control" asp-for="Entity.IVA" v-model="Entity.IVA" required />
                 </div>
 
                 @*Total*@
                 <div class="form-group mb-3">
                     <label for="Entity.Total" class="form-label">Total</label>
-                    <input type="number" class="form-control" asp-for="Entity.Total" v-model="Entity.Total" required />
+                    <input type="text" readonly class="form-control" asp-for="Entity.Total" v-model="Entity.Total" required />
                 </div>
 
 
