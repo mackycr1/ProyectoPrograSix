@@ -6,21 +6,28 @@ AS BEGIN
 
 	SET NOCOUNT ON
 	
-	SELECT	PE.IdPedido,
+SELECT	PE.IdPedido,
 			PE.IdCliente,
+			C.IdCliente,
+			PR.IdProducto,
+			PE.Codigo,
+			PE.Fecha,
+			PE.Cantidad,
+			PE.PrecioUnitario,
+			PE.Envio,
+			PE.SubTotal,
+			PE.IVA,
+			PE.Total,
+
 			C.IdCliente,
 			C.NombreCliente,
 			C.PrimerAPEllidoCliente,
 			C.SegundoAPEllidoCliente,
 			C.TelefonoCliente,
+
 			PR.IdProducto,
-			PR.Nombre,
-			PR.Precio,
-			PE.Codigo,
-			PE.Fecha,
-			PE.SubTotal,
-			PE.IVA,
-			PE.Total
+			PR.Nombre
+			
 	FROM [dbo].[Pedido] PE
 	LEFT JOIN dbo.Cliente C
 	ON PE.IdCliente = C.IdCliente
