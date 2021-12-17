@@ -1,20 +1,20 @@
-﻿CREATE PROCEDURE [dbo].[PedidoLista]
-	AS 
+﻿--CREATE PROCEDURE [dbo].[PedidoLista]
+--	AS 
 
-BEGIN
+--BEGIN
 
-	SET NOCOUNT ON
+--	SET NOCOUNT ON
 
-	SELECT IdPedido
-				,IdCliente
-				,Fecha
-				,IdProducto
-				,Cantidad
-				,PrecioUnitario
-				,Envio
-				,SubTotal
-				,IVA
-				,Total
-	FROM [dbo].[Pedido]
+--	SELECT IdPedido
+--				,IdCliente
+--				,Fecha
+--				,IdProducto
+--				,Cantidad
+--				,PrecioUnitario
+--				,Envio
+--				,SubTotal
+--				,IVA
+--				,Total
+--	FROM [dbo].[Pedido]
 	
-END
+--END

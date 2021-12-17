@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoProductoEliminar]
     
-	@IdPedido INT
+	@IdPedidoProducto INT
 
 AS BEGIN
   
@@ -9,8 +9,8 @@ AS BEGIN
 		BEGIN TRANSACTION TRAS
 		BEGIN TRY
 			
-			DELETE FROM [dbo].[Pedido]
-			WHERE IdPedido = @IdPedido
+			DELETE FROM [dbo].[PedidoProducto]
+			WHERE IdPedidoProducto = @IdPedidoProducto
 			
 			COMMIT TRANSACTION TRANS
 			SELECT 0 AS CodeError, '' AS MsgError
