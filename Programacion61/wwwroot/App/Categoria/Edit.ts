@@ -17,7 +17,7 @@
                         return App.AxiosProvider.CategoriaGuardar(entity);
 
                     } else {
-                        return App.AxiosProvider.CategoriaActualizar(entity);
+                        return App.AxiosProvider.CategoriaGuardar(entity);
 
                     }
                 },
