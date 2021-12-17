@@ -11,7 +11,7 @@ namespace WBL
 {
     public interface IUsuarioService
     {
-        Task<DBEntity> Login(UsuarioEntity entity);
+        Task<UsuarioEntity> Login(UsuarioEntity entity);
         Task<DBEntity> Create(UsuarioEntity entity);
         Task<DBEntity> Update(UsuarioEntity entity);
         Task<DBEntity> UpdateClave(UsuarioEntity entity);
@@ -105,16 +105,16 @@ namespace WBL
         }
 
         //Metodo Login
-        public async Task<DBEntity> Login(UsuarioEntity entity)
+        public async Task<UsuarioEntity> Login(UsuarioEntity entity)
         {
             try
             {
-                var result = sql.ExecuteAsync("Login", new
+                var result = sql.QueryFirstAsync<UsuarioEntity>("Login", new
                 {
+
                     entity.Usuario,
                     entity.Clave,
                 });
-
                 return await result;
             }
             catch (Exception)

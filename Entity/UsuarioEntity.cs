@@ -9,7 +9,7 @@ namespace Entity
 {
     public class UsuarioEntity : DBEntity
     {
-        public string? Usuario { get; set; }
+        public string Usuario { get; set; }
         public string Nombre { get; set; }
         public string Clave { get; set; }
         public int Rol_id { get; set; }

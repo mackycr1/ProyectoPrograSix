@@ -79,6 +79,11 @@ namespace Programacion61
 
         }
 
+        public static async Task<T> ServicioPutAsync<T>(this HttpClient client, string url)
+        {
+            using (var result = await client.PutAsJsonAsync(url, ""))
+            {
+                if (!result.IsSuccessStatusCode) throw new Exception(result.ReasonPhrase);
 
         public static async Task<TResul> ServicioPutAsync<TSend, TResul>(this HttpClient client, string url, TSend val)
         {
@@ -102,8 +107,16 @@ namespace Programacion61
 
         }
 
+        public static async Task<TResul> ServicioPutAsync<TResul>(this HttpClient client, string url, TResul val)
+        {
+            using (var result = await client.PutAsJsonAsync(url, val))
+            {
+                if (!result.IsSuccessStatusCode) throw new Exception(result.ReasonPhrase);
 
+                return await result.Content.ReadFromJsonAsync<TResul>();
+            }
 
+        }
 
     }
 }

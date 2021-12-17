@@ -7,7 +7,6 @@ namespace Programacion61
 {
     public struct IApp
     {
-
-
+        public static string UsuarioSession => "UsuarioSession";
     }
 }

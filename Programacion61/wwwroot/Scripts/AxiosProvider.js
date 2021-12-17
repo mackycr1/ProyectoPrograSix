@@ -3,12 +3,16 @@ var App;
 (function (App) {
     var AxiosProvider;
     (function (AxiosProvider) {
-        //export const GuardarEmpleado = () => axios.get<Entity.DBEntity>("aplicacion").then(({data})=>data );
+        /*Usuario*/
         AxiosProvider.UsuarioEliminar = function (id) { return axios.delete("Usuario/Grid?handler=Eliminar&id=" + id).then(function (_a) {
             var data = _a.data;
             return data;
         }); };
         AxiosProvider.UsuarioGuardar = function (entity) { return axios.post("Usuario/Edit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.UsuarioLogin = function (entity) { return axios.post("Login", entity).then(function (_a) {
             var data = _a.data;
             return data;
         }); };
