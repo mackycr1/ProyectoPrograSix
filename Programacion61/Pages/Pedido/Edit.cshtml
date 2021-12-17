@@ -44,7 +44,7 @@
                     <label for="Entity.Producto" class="form-label">Producto</label>
 
                     <select id="producto" asp-for="Entity.IdProducto" class="form-select" v-model="Entity.IdProducto"
-                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))"  required>
+                            asp-items="@(new SelectList(Model.ProductoLista,"IdProducto","Nombre"))" required>
                     </select>
                 </div>
 
@@ -56,10 +56,19 @@
 
                 @*Precio Unitario*@
                 <div class="form-group mb-3">
-                    <label  for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
-                    <input id="precioUniatirio" readonly type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
+                    <label for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
+                    <input type="number" class="form-control" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
                 </div>
 
+                @*Precio Unitario*@
+                <!--<div class="form-group mb-3">
+                    <label for="Entity.PrecioUnitario" class="form-label">Precio Unitario</label>
+                    <input id="precioUniatirio" readonly type="number" class="form-control" value="
+                            @if (Model.Entity.IdProducto != null)
+                            {
+                                @Model.ProductoLista.FirstOrDefault(x => x.IdProducto == Model.Entity.IdProducto).Precio;
+                            }" asp-for="Entity.PrecioUnitario" v-model="Entity.PrecioUnitario" required />
+                </div>-->
 
 
                 @*Envio*@

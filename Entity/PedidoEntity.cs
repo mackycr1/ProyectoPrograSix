@@ -20,8 +20,7 @@ namespace Entity
 
         public int? IdProducto { get; set; }
 
-
-        public string Codigo { get; set; } = "OD"  +  new Random().Next(25500000);
+        public string Codigo { get; set; } = "OD"  +  new Random().Next(111111111, 999999999);
         
         public DateTime Fecha { get; set; } = DateTime.Now;
 
